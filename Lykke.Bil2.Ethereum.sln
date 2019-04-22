@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lykke.Bil2.Ethereum", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lykke.Bil2.Ethereum.Tests", "tests\Lykke.Bil2.Ethereum.Tests\Lykke.Bil2.Ethereum.Tests.csproj", "{4734D393-952D-4BF1-8E48-22EEE4611E5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lykke.Bil2.Ethereum.Rlp", "src\Lykke.Bil2.Ethereum.Rlp\Lykke.Bil2.Ethereum.Rlp.csproj", "{908E9D62-56C9-41D6-80E5-89173DC2040C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lykke.Bil2.Ethereum.Utils", "src\Lykke.Bil2.Ethereum.Utils\Lykke.Bil2.Ethereum.Utils.csproj", "{3388448A-0F9B-400F-823D-10EA12C7AA30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{4734D393-952D-4BF1-8E48-22EEE4611E5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4734D393-952D-4BF1-8E48-22EEE4611E5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4734D393-952D-4BF1-8E48-22EEE4611E5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{908E9D62-56C9-41D6-80E5-89173DC2040C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{908E9D62-56C9-41D6-80E5-89173DC2040C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{908E9D62-56C9-41D6-80E5-89173DC2040C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{908E9D62-56C9-41D6-80E5-89173DC2040C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3388448A-0F9B-400F-823D-10EA12C7AA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3388448A-0F9B-400F-823D-10EA12C7AA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3388448A-0F9B-400F-823D-10EA12C7AA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3388448A-0F9B-400F-823D-10EA12C7AA30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +44,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{38B2C04A-1935-4E1F-A6E7-DDC3C40FC9CA} = {75C0F023-56CE-4538-B520-5E0AA96F8446}
 		{4734D393-952D-4BF1-8E48-22EEE4611E5F} = {30B3B96C-B91A-459B-AB68-F6D904FA244D}
+		{908E9D62-56C9-41D6-80E5-89173DC2040C} = {75C0F023-56CE-4538-B520-5E0AA96F8446}
+		{3388448A-0F9B-400F-823D-10EA12C7AA30} = {75C0F023-56CE-4538-B520-5E0AA96F8446}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A39335F1-1D29-4655-9FBD-5CC102014D0D}

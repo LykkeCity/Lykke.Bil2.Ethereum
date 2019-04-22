@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
+using System.Collections.Immutable;
 
-namespace Lykke.Quintessence.Core.Utils
+namespace Lykke.Bil2.Ethereum.Utils
 {
     [PublicAPI]
     public static class EnumerableExtensions

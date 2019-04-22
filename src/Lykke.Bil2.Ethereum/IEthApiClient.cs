@@ -78,5 +78,7 @@ namespace Lykke.Bil2.Ethereum
 
         Task<IEnumerable<TransactionTrace>> GetTransactionTraces(
             string transactionHash);
+
+        Task<IEnumerable<FilterLog>> GetBlockLogsAsync(BigInteger blockNumber);
     }
 }

@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-using Lykke.Bil2.Ethereum.Models;
+﻿using Lykke.Bil2.Ethereum.Models;
 using Lykke.Bil2.Ethereum.Rpc;
 using Lykke.Bil2.Ethereum.Strategies;
 using Lykke.Bil2.Ethereum.Utils;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+using System.Threading.Tasks;
 
 namespace Lykke.Bil2.Ethereum
 {
     public class DefaultEthApiClient : ApiClientBase, IEthApiClient
     {
+        private static string _erc20TransferTopic = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef";
         protected const string BestBlockIdentifier = "latest";
         protected const string PendingBlockIdentifier = "pending";
 
@@ -95,6 +94,30 @@ namespace Lykke.Bil2.Ethereum
             var response = await SendRpcRequestAsync(request);
 
             return GetBlock(response, includeTransactions);
+        }
+
+        /// <inheritdoc />
+        public async Task<IEnumerable<FilterLog>> GetBlockLogsAsync(BigInteger blockNumber)
+        {
+            var blockNumberStr = $"{blockNumber.ToHexString()}";
+            
+            var requestParams = new object[] { blockNumberStr, blockNumberStr, new object[]
+            {
+                _erc20TransferTopic
+            }};
+            var request = new RpcRequest("eth_getLogs", requestParams);
+            var response = await SendRpcRequestAsync(request);
+
+            if (response.Result.Type != JTokenType.Null)
+            {
+                var logs = response.Result.Value<JArray>().ToList().Select(GetFilterLog);
+
+                return logs;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         /// <inheritdoc />
@@ -291,6 +314,24 @@ namespace Lykke.Bil2.Ethereum
                 transactionIndex: jToken.Value<string>("transactionIndex").HexToNullableBigInteger(),
                 transactionHash: jToken.Value<string>("hash"),
                 value: jToken.Value<string>("value").HexToBigInteger()
+            );
+        }
+
+        private FilterLog GetFilterLog(
+            JToken jToken)
+        {
+            return new FilterLog
+            (
+                type: jToken.Value<string>("blockHash"),
+                logIndex : jToken.Value<string>("logIndex").HexToBigInteger(),
+                transactionHash: jToken.Value<string>("transactionHash"),
+                blockHash: jToken.Value<string>("blockHash"),
+                blockNumber: jToken.Value<string>("blockNumber").HexToBigInteger(),
+                transactionIndex: jToken.Value<string>("transactionIndex").HexToBigInteger(),
+                address: jToken.Value<string>("address"),
+                data: jToken.Value<string>("address"),
+                removed: jToken.Value<bool>("removed"),
+                topics: jToken.Value<object[]>("topics")
             );
         }
     }
