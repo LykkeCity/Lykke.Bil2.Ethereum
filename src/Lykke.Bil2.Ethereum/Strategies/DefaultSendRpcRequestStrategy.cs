@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lykke.Bil2.Ethereum.Strategies
 {
+    /// <inheritdoc />
     public class DefaultSendRpcRequestStrategy : ISendRpcRequestStrategy
     {
         private readonly Uri _apiUrl;

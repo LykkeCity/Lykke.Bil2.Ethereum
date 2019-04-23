@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>7.1</LangVersion>
+    <LangVersion>7.2</LangVersion>
     <Version>1.0.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageLicenseUrl>https://github.com/LykkeCity/Lykke.HttpClientGenerator/blob/master/LICENSE</PackageLicenseUrl>
@@ -27,6 +27,7 @@
     <PackageReference Include="System.Reflection.DispatchProxy" Version="4.5.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lykke.Bil2.Ethereum.Rlp\Lykke.Bil2.Ethereum.Rlp.csproj" />
     <ProjectReference Include="..\Lykke.Bil2.Ethereum.Utils\Lykke.Bil2.Ethereum.Utils.csproj" />
   </ItemGroup>
 </Project>

@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Lykke.Bil2.Ethereum
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class DefaultEthApiClient : ApiClientBase, IEthApiClient
     {
         private static string _erc20TransferTopic = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef";
